@@ -1,0 +1,32 @@
+<h2>Log in</h2>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "ui form"}) do |f| %>
+  <div class="field">
+    <%= f.label :email %>
+    <div class="ui left icon input">
+      <%= f.email_field :email, autofocus: true %>
+      <i class="mail icon"></i>
+    </div>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <div class="ui left icon input">
+      <%= f.password_field :password, autocomplete: "off" %>
+      <i class="lock icon"></i>
+    </div>
+  </div>
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <div class="ui checkbox">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    </div>
+  <% end -%>
+  <div class="actions">
+    <%= f.submit "Log in", class: "ui positive button" %>
+    <% if devise_mapping.omniauthable? %>
+      <%= omniauth_buttons(resource_class.omniauth_providers) %>
+    <% end %>
+  </div>
+<% end %>
+<%= render "users/shared/links" %>

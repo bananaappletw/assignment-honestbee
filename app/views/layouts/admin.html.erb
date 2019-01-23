@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Assignment</title>
+    <title>Bamboofox</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render 'admin/header' %>
+    <main class="ui centered aligned grid container">
+      <div class="sixteen wide mobile sixteen wide tablet twelve wide computer column">
+        <%= render 'layouts/flash' %>
+        <div class="ui segment">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

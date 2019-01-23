@@ -1,24 +1,20 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-<% if @product.images.attached? %>
+<div class="ui segment">
   <p>
-    <h2>Images</h2>
-    <% @product.images.each_with_index do |image, i| %>
-      <p>
-        <%= link_to("image##{i}", rails_blob_path(image, disposition: "attachment")) %>
-      </p>
-    <% end %>
+    <strong>Price:</strong>
+    <%= @product.price %>
   </p>
-<% end %>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+  <p>
+    <strong>Name:</strong>
+    <%= @product.name %>
+  </p>
+  <% if @product.images.attached? %>
+    <p>
+      <h2>Images</h2>
+      <% @product.images.each_with_index do |image, i| %>
+        <p>
+          <%= image_tag rails_blob_path(image, disposition: "attachment") %>
+        </p>
+      <% end %>
+    </p>
+  <% end %>
+  <%= link_to 'Back', products_path %>

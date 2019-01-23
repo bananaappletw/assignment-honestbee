@@ -1,0 +1,26 @@
+<h1>Users</h1>
+<div class="ui items">
+  <table class="ui table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each_with_index do | user, i | %>
+        <tr>
+          <td>
+            <% if @users.first_page? %>
+              <%= i+1 %>
+            <% else %>
+              <%= (params[:page].to_i-1)*25+i+1 %>
+            <% end %>
+          </td>
+          <td><%= link_to user.email, user  %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= paginate @users %>
