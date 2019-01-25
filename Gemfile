@@ -66,5 +66,5 @@ gem 'rails_best_practices-rake_task', require: false
 gem 'rolify'
 gem 'rubocop', require: false
 gem 'semantic-ui-sass'
-gem "mini_magick"
+gem 'mini_magick'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
