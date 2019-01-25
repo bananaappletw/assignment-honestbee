@@ -16,13 +16,14 @@
       <i class="ui money icon"></i>
     </div>
   </div>
-  <div class="field">
-    <%= form.label :name %>
-    <div class="ui left icon input">
-      <%= form.text_field :name %>
-      <i class="ui user icon"></i>
+  <% if product.images.attached? %>
+    <div class="ui images">
+      <% product.images.each do |image| %>
+        <%= image_tag image.variant(combine_options: { resize: "100x100", auto_orient: true }), class: "ui image" %>
+        <%= link_to 'delete', destroy_image_admin_product_path(product, image), method: :delete, class: "ui negative button" %>
+      <% end %>
     </div>
-  </div>
+  <% end %>
   <div class="field">
     <%= form.label :images %>
     <div class="ui left icon input">
@@ -31,6 +32,6 @@
     </div>
   </div>
   <div class="actions">
-    <%= form.submit "Update", class: "ui positive button" %>
+    <%= form.submit create: "Create", update: "Update", class: "ui positive button" %>
   </div>
 <% end %>

@@ -1,21 +1,26 @@
-<h1>Products</h1>
+<h1 class="ui header">Products</h1>
 <% @products.each do |product| %>
-  <div class="ui card">
-    <div class="image">
-      <% if product.images.attached? %>
-        <div class="ui cube shape">
-          <% product.images.each_with_index do |image, i| %>
-            <%= image_tag image %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-    <div class="content">
-      <h2><%= product.price %></h2>
-      <h2><%= product.name %></h2>
-    </div>
-    <div class="extra content">
-      <%= link_to 'Show', product, class: "ui button" %>
-    </div>
+  <div class="ui segment">
+    <h2 class="ui header">
+      <%= product.name %>
+    </h2>
+    <h2 class="ui sub header">Price</h2>
+    <i class="dollar sign icon"></i>
+    <%= product.price %>
+    <h1 class="ui header"><%= product.price %></h1>
+    <h2 class="ui header">
+      <%= product.name %>
+    </h2>
+    <h2 class="ui sub header">Price</h2>
+    <i class="dollar sign icon"></i>
+    <%= product.price %>
+    <% if product.images.attached? %>
+      <div class="ui images">
+        <% product.images.each_with_index do |image| %>
+          <%= image_tag image.variant(combine_options: { resize: "100x100", auto_orient: true }), class: "ui image" %>
+        <% end %>
+      </div>
+    <% end %>
+    <%= link_to 'Show', product, class: "ui button" %>
   </div>
 <% end %>

@@ -1,4 +1,4 @@
-<h1>Editing Product</h1>
+<h1 class="ui header">Editing Product</h1>
 <%= render 'form', product: @product %>
-<%= link_to 'Show', @product, class: "ui button" %>
-<%= link_to 'Back', products_path, class: "ui button" %>
+<%= link_to 'Show', admin_product_path(@product), class: "ui button" %>
+<%= link_to 'Back', admin_products_path, class: "ui button" %>

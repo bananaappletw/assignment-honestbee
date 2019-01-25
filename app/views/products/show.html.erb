@@ -1,20 +1,15 @@
-<div class="ui segment">
-  <p>
-    <strong>Price:</strong>
-    <%= @product.price %>
-  </p>
-  <p>
-    <strong>Name:</strong>
-    <%= @product.name %>
-  </p>
-  <% if @product.images.attached? %>
-    <p>
-      <h2>Images</h2>
-      <% @product.images.each_with_index do |image, i| %>
-        <p>
-          <%= image_tag rails_blob_path(image, disposition: "attachment") %>
-        </p>
-      <% end %>
-    </p>
-  <% end %>
-  <%= link_to 'Back', products_path %>
+<h1 class="ui header">Product</h1>
+<h2 class="ui header">
+  <%= @product.name %>
+</h2>
+<h2 class="ui sub header">Price</h2>
+<i class="dollar sign icon"></i>
+<%= @product.price %>
+<% if @product.images.attached? %>
+  <div class="ui images">
+    <% @product.images.each_with_index do |image, i| %>
+      <%= image_tag image.variant(combine_options: { resize: "100x100", auto_orient: true }), class: "ui image"%>
+    <% end %>
+  </div>
+<% end %>
+<%= link_to 'Back', products_path, class: "ui button" %>

@@ -53,6 +53,14 @@ class Admin::ProductsController < AdminController
     end
   end
 
+  def destroy_image
+    @product.images.find(params[:image_id]).purge
+    respond_to do |format|
+      format.html { redirect_to admin_product_url(@product), notice: 'Image was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   # Never trust parameters from the scary internet, only allow the white list through.
