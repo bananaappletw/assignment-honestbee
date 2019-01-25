@@ -35,6 +35,12 @@
       <i class="lock icon"></i>
     </div>
   </div>
+  <div class="field">
+    <div class="ui checkbox">
+      <%= f.check_box :premium, {checked: current_user.has_role?(:premium)}, "true", nil %>
+      <%= f.label 'premium' %>
+    </div>
+  </div>
   <div class="actions">
     <%= f.submit "Update", class: "ui positive button"%>
   </div>

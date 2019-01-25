@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'products#index'
   resources :products, only: %i[index show]
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
   namespace :admin do
     root 'products#index'
