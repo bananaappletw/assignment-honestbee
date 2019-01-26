@@ -15,8 +15,8 @@
 <% end %>
 <% if @product.images.attached? %>
   <div class="ui images">
-    <% @product.images.each_with_index do |image, i| %>
-      <%= image_tag image.variant(combine_options: { resize: "100x100", auto_orient: true }), class: "ui image"%>
+    <% @product.images.each do |image| %>
+      <%= image_tag rails_representation_url(image.variant(resize: "100x100")), class: "ui image" %>
     <% end %>
   </div>
 <% end %>

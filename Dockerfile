@@ -6,6 +6,7 @@ RUN apk add --update \
   nodejs \
   yarn \
   tzdata \
+  imagemagick \
   && rm -rf /var/cache/apk/*
 
 RUN gem install bundler

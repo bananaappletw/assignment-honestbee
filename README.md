@@ -4,6 +4,14 @@
 
 http://34.80.36.164/
 
+Default admin is `admin@gmail.com`
+
+password is `adminadmin`
+
+Default user is `user@gmail.com`
+
+password is `useruser`
+
 ## Run the server
 
 ```bash
