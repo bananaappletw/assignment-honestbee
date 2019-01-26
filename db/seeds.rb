@@ -23,6 +23,7 @@ user.save!
 
 product = Product.new(
   price: 100,
+  premium_price: 50,
   name: 'cat'
 )
 
@@ -31,6 +32,7 @@ product.save!
 
 product = Product.new(
   price: 9999,
+  premium_price: 6666,
   name: 'meme'
 )
 

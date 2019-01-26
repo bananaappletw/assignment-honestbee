@@ -1,12 +1,18 @@
 <h1 class="ui header">Products</h1>
 <% @products.each do |product| %>
-  <div class="ui segment">
+  <div class="ui segment">    
     <h2 class="ui header">
-      <%= product.name %>
+      <i class="archive icon"></i>
+      Name: <%= product.name %>
     </h2>
-    <h2 class="ui sub header">Price</h2>
-    <i class="dollar sign icon"></i>
-    <%= product.price %>
+    <h3 class="ui header">
+      <i class="dollar sign icon"></i>
+      Price: <%= product.price %>
+    </h3>
+    <h3 class="ui header">
+      <i class="dollar sign icon"></i>
+      Premium Price: <%= product.premium_price %>
+    </h3>
     <% if product.images.attached? %>
       <div class="ui images">
         <% product.images.each_with_index do |image| %>
@@ -16,7 +22,6 @@
     <% end %>
     <%= link_to 'Show', admin_product_path(product), class: "ui button" %>
     <%= link_to 'Edit', edit_admin_product_path(product), class: "ui button" %>
-    <%= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: "ui button" %>
   </div>
 <% end %>
 <%= link_to 'New Product', new_admin_product_path, class: "ui positive button" %>

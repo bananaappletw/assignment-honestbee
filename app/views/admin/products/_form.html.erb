@@ -1,18 +1,22 @@
 <%= form_with(model: [:admin, product], local: true, class: "ui form") do |form| %>
   <% if product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-      <ul>
-        <% product.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <ul class="list">
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   <% end %>
   <div class="field">
     <%= form.label :price %>
     <div class="ui left icon input">
       <%= form.number_field :price %>
+      <i class="ui money icon"></i>
+    </div>
+  </div>
+  <div class="field">
+    <%= form.label :premium_price %>
+    <div class="ui left icon input">
+      <%= form.number_field :premium_price %>
       <i class="ui money icon"></i>
     </div>
   </div>

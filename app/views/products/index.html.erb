@@ -2,18 +2,19 @@
 <% @products.each do |product| %>
   <div class="ui segment">
     <h2 class="ui header">
-      <%= product.name %>
+      <i class="archive icon"></i>
+      Name: <%= product.name %>
     </h2>
-    <h2 class="ui sub header">Price</h2>
-    <i class="dollar sign icon"></i>
-    <%= product.price %>
-    <h1 class="ui header"><%= product.price %></h1>
-    <h2 class="ui header">
-      <%= product.name %>
-    </h2>
-    <h2 class="ui sub header">Price</h2>
-    <i class="dollar sign icon"></i>
-    <%= product.price %>
+    <h3 class="ui header">
+      <i class="dollar sign icon"></i>
+      Price: <%= product.price %>
+    </h3>
+    <% if current_user&.has_role?(:premium) %>
+      <h3 class="ui header">
+        <i class="dollar sign icon"></i>
+        Premium Price: <%= product.premium_price %>
+      </h3>
+    <% end %>
     <% if product.images.attached? %>
       <div class="ui images">
         <% product.images.each_with_index do |image| %>
