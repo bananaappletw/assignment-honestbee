@@ -56,7 +56,7 @@ class Admin::ProductsController < AdminController
   def destroy_image
     @product.images.find(params[:image_id]).purge
     respond_to do |format|
-      format.html { redirect_to admin_product_url(@product), notice: 'Image was successfully destroyed.' }
+      format.html { redirect_to %i[edit admin product], notice: 'Image was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

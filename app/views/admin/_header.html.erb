@@ -18,7 +18,7 @@
         <i class="mail icon"></i>
         <%= current_user.email %>
       </div>
-      <%= link_to request.base_url+request.path.sub('/admin',''), class: "item" do %>
+      <%= link_to root_path, class: "item" do %>
         <i class="student icon"></i>
         Normal
       <% end %>

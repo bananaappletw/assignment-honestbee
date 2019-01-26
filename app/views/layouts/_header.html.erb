@@ -17,7 +17,7 @@
         <i class="mail icon"></i>
         <%= current_user.email %>
       </div>
-      <%= link_to request.base_url+'/admin'+request.path, class: "item" do %>
+      <%= link_to admin_root_path, class: "item" do %>
         <i class="spy icon"></i>
         Admin
       <% end %>
