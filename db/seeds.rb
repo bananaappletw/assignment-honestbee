@@ -18,9 +18,22 @@ user = User.new(
   password: 'useruser',
   password_confirmation: 'useruser'
 )
+
 user.save!
+
 product = Product.new(
   price: 100,
-  name: 'apple'
+  name: 'cat'
 )
+
+product.images.attach(io: File.open('test/fixtures/files/cat.jpg'), filename: 'cat.jpg')
+product.save!
+
+product = Product.new(
+  price: 9999,
+  name: 'meme'
+)
+
+product.images.attach(io: File.open('test/fixtures/files/explosion.jpg'), filename: 'explosion.jpg')
+product.images.attach(io: File.open('test/fixtures/files/scare.jpg'), filename: 'scare.jpg')
 product.save!
