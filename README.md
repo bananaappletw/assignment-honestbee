@@ -15,7 +15,8 @@ password is `useruser`
 ## Run the server
 
 ```bash
-docker-compose -d
+docker-compose build --no-cache
+docker-compose up -d
 ```
 
 Server will be available at http://localhost:3000
@@ -33,3 +34,9 @@ Admin could set user as admin under `/admin/users` url
 User could upgrade to premium account from `/users/edit` page by entering the current password
 
 Image upload by active storage
+
+## Run test
+
+```bash
+docker-compose exec assignment-honestbee bundle exec rake RAILS_ENV=test
+```

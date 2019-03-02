@@ -1,4 +1,4 @@
-FROM ruby:2.5.3-alpine
+FROM ruby:2.6.0-alpine
 
 RUN apk add --update \
   build-base \
@@ -9,6 +9,7 @@ RUN apk add --update \
   imagemagick \
   && rm -rf /var/cache/apk/*
 
+RUN gem update --system
 RUN gem install bundler
 
 WORKDIR /app
